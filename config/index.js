@@ -40,10 +40,16 @@ module.exports = {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
+    /*
+    * build 选项是 webpack 配置的一部分，用来配置生成生产环境可用的代码。这里的修改很重要，
+    * 因为我们需要从 dist 目录下的 index.html 文件开始访问项目，但是它不在项目的根目录，
+    * 为了使用 GitHub Pages，我们需要手动指定资源路径为 '/vuejs-essential/dist/'，以正确地引用静态资源。
+    * 如果你不需要 GitHub Pages 了，建议将其改回 '/'
+    * */
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/vuejs-essential/dist/',
 
     /**
      * Source Maps
